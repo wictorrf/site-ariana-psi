@@ -1,0 +1,1610 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ariana Marafon · Psicóloga Clínica · TCC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  /* ─────────────────────────────────────────────────
+     TOKENS — paleta exata da designer
+     ───────────────────────────────────────────────── */
+  :root {
+    --olive:  #8b8c4a;
+    --cream:  #fff2e5;
+    --rose:   #f4c2c2;
+    --brown:  #5e4232;
+    --brown-70: rgba(94, 66, 50, 0.70);
+    --brown-50: rgba(94, 66, 50, 0.50);
+    --brown-20: rgba(94, 66, 50, 0.20);
+    --brown-10: rgba(94, 66, 50, 0.10);
+
+    --serif: "Lora", Georgia, "Times New Roman", serif;
+    --sans:  "Quicksand", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+    --max: 1440px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html, body { margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--brown);
+    background: var(--cream);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  img { max-width: 100%; display: block; }
+
+  ::selection { background: var(--olive); color: var(--cream); }
+
+  /* ─────────────────────────────────────────────────
+     HEADER — sobreposto, transparente
+     ───────────────────────────────────────────────── */
+  .site-header {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    z-index: 50;
+    padding: 32px clamp(24px, 5vw, 64px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 500;
+    font-size: 22px;
+    color: var(--brown);
+    letter-spacing: 0.01em;
+    text-decoration: none;
+  }
+
+  .nav {
+    display: flex;
+    gap: 36px;
+    align-items: center;
+  }
+
+  .nav a {
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    color: var(--brown);
+    text-decoration: none;
+    text-transform: lowercase;
+    position: relative;
+    padding: 4px 0;
+    transition: color 300ms ease;
+  }
+
+  .nav a::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0;
+    bottom: 0;
+    height: 1px;
+    background: var(--brown);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 400ms ease;
+  }
+
+  .nav a:hover { color: var(--olive); }
+  .nav a:hover::after { transform: scaleX(1); background: var(--olive); }
+
+  .nav-toggle { display: none; }
+
+  /* ─────────────────────────────────────────────────
+     HERO — split assimétrico 55 / 45
+     ───────────────────────────────────────────────── */
+  .hero {
+    position: relative;
+    min-height: 85vh;
+    display: grid;
+    grid-template-columns: 55fr 45fr;
+    background: var(--cream);
+  }
+
+  .hero__left {
+    position: relative;
+    padding: clamp(110px, 12vh, 150px) clamp(40px, 6vw, 96px) 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .hero__eyebrow {
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--olive);
+    margin: 0;
+  }
+
+  .hero__eyebrow .dot {
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    background: var(--olive);
+    margin: 0 10px 3px;
+    vertical-align: middle;
+  }
+
+  .hero__headline {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(2.5rem, 4.5vw, 5rem);
+    line-height: 1.0;
+    letter-spacing: -0.015em;
+    color: var(--brown);
+    margin: 56px 0 0;
+    max-width: 14ch;
+  }
+
+  .hero__headline em {
+    display: block;
+    font-style: italic;
+    font-weight: 500;
+    color: var(--olive);
+    margin-top: 0.05em;
+  }
+
+  .hero__sub {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--brown-70);
+    max-width: 460px;
+    margin: 32px 0 0;
+  }
+
+  .hero__cta-row {
+    margin-top: 48px;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 20px 40px;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 320ms ease, color 320ms ease, transform 320ms ease;
+  }
+
+  .btn--primary {
+    background: var(--brown);
+    color: var(--cream);
+  }
+
+  .btn--primary:hover {
+    background: var(--olive);
+    transform: translateY(-1px);
+  }
+
+  .btn--outline {
+    background: transparent;
+    color: var(--brown);
+    border: 1px solid var(--brown);
+    /* compensa o border de 1px para manter o tamanho visual idêntico ao primary */
+    padding: 19px 39px;
+  }
+
+  .btn--outline:hover {
+    background: var(--brown);
+    color: var(--cream);
+    transform: translateY(-1px);
+  }
+
+  .btn .arrow {
+    width: 14px;
+    height: 1px;
+    background: currentColor;
+    position: relative;
+    transition: width 320ms ease;
+  }
+  .btn .arrow::after {
+    content: "";
+    position: absolute;
+    right: 0; top: -3px;
+    width: 7px; height: 7px;
+    border-top: 1px solid currentColor;
+    border-right: 1px solid currentColor;
+    transform: rotate(45deg);
+  }
+  .btn:hover .arrow { width: 22px; }
+
+  .hero__meta {
+    margin-top: 56px;
+    display: flex;
+    gap: 48px;
+    font-family: var(--sans);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--brown-50);
+  }
+
+  .hero__meta strong {
+    display: block;
+    font-weight: 500;
+    color: var(--brown);
+    margin-top: 6px;
+    letter-spacing: 0.08em;
+  }
+
+  /* indicador de scroll discreto, canto inferior esquerdo */
+  .hero__scroll {
+    position: absolute;
+    bottom: 40px;
+    left: clamp(40px, 6vw, 96px);
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--brown-50);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .hero__scroll::after {
+    content: "";
+    width: 48px;
+    height: 1px;
+    background: var(--brown-20);
+    animation: scrollLine 2.4s ease-in-out infinite;
+  }
+  @keyframes scrollLine {
+    0%, 100% { transform: scaleX(0.4); transform-origin: left; }
+    50%      { transform: scaleX(1);   transform-origin: left; }
+  }
+
+  /* RIGHT — full-bleed photo */
+  .hero__right {
+    position: relative;
+    overflow: hidden;
+    background: var(--rose);
+  }
+
+  .hero__photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 25%;
+    transition: transform 1200ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .hero__right:hover .hero__photo { transform: scale(1.025); }
+
+  /* numeração editorial flutuando sobre a foto */
+  .hero__index {
+    position: absolute;
+    top: clamp(120px, 14vh, 180px);
+    right: clamp(32px, 4vw, 56px);
+    z-index: 2;
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--cream);
+    letter-spacing: 0.08em;
+    mix-blend-mode: difference;
+  }
+
+  .hero__caption {
+    position: absolute;
+    bottom: 40px;
+    right: clamp(32px, 4vw, 56px);
+    z-index: 2;
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--cream);
+    text-align: right;
+    max-width: 220px;
+    line-height: 1.6;
+    text-shadow: 0 1px 12px rgba(0,0,0,0.25);
+  }
+
+  /* ─────────────────────────────────────────────────
+     SINTOMAS — bloco editorial com 3 colunas sólidas
+     ───────────────────────────────────────────────── */
+  .sintomas {
+    background: var(--cream);
+    padding: clamp(72px, 10vh, 120px) 0 0;
+    position: relative;
+  }
+
+  .sintomas__intro {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 clamp(40px, 6vw, 96px);
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: clamp(32px, 6vw, 96px);
+    align-items: end;
+    margin-bottom: clamp(64px, 10vh, 120px);
+  }
+
+  .sintomas__eyebrow {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 22px;
+    color: var(--olive);
+    margin: 0;
+  }
+
+  .sintomas__eyebrow::before {
+    content: "";
+    display: none;
+  }
+
+  .sintomas__title {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(2rem, 3.6vw, 3rem);
+    line-height: 1.08;
+    color: var(--brown);
+    margin: 0;
+    letter-spacing: -0.01em;
+    max-width: 18ch;
+  }
+
+  .sintomas__title em {
+    font-style: italic;
+    font-weight: 500;
+    color: var(--olive);
+  }
+
+  /* grid de 3 colunas full-bleed */
+  .sintomas__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 100%;
+  }
+
+  .col {
+    padding: clamp(40px, 5vw, 64px) clamp(28px, 3.5vw, 48px);
+    min-height: 460px;
+    max-height: 500px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .col--cream { background: var(--cream); color: var(--brown); }
+  .col--olive { background: var(--olive); color: var(--cream); }
+  .col--rose  { background: var(--rose);  color: var(--brown); }
+
+  /* divisor vertical sutil entre creme e rosa quando estão lado a lado */
+  .col--cream { box-shadow: inset -1px 0 0 var(--brown-10); }
+
+  .col__num {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    opacity: 0.7;
+    margin: 0 0 32px;
+  }
+
+  .col--olive .col__num { color: var(--cream); opacity: 0.7; }
+
+  .col__title {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(1.6rem, 2.2vw, 2rem);
+    line-height: 1.1;
+    margin: 0 0 40px;
+    letter-spacing: -0.005em;
+    max-width: 12ch;
+  }
+
+  .col--cream .col__title { color: var(--olive); }
+  .col--olive .col__title { color: var(--cream); }
+  .col--rose  .col__title { color: var(--brown); }
+
+  .col__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex: 1;
+  }
+
+  .col__list li {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.55;
+    padding: 18px 0;
+    border-top: 1px solid currentColor;
+    opacity: 0.92;
+  }
+
+  .col__list li:last-child {
+    border-bottom: 1px solid currentColor;
+  }
+
+  .col--cream .col__list li { border-color: var(--brown-20); }
+  .col--olive .col__list li { border-color: rgba(255, 242, 229, 0.25); }
+  .col--rose  .col__list li { border-color: var(--brown-20); }
+
+  /* call-out final */
+  .sintomas__outro {
+    text-align: center;
+    padding: clamp(96px, 14vh, 160px) clamp(40px, 6vw, 96px);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .sintomas__quote {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(1.25rem, 1.9vw, 1.5rem);
+    line-height: 1.45;
+    color: var(--brown);
+    margin: 0 0 56px;
+    position: relative;
+    padding: 0 24px;
+  }
+
+  .sintomas__quote::before,
+  .sintomas__quote::after {
+    content: "";
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--olive);
+    margin: 24px auto;
+  }
+
+  /* ─────────────────────────────────────────────────
+     WHATSAPP FAB
+     ───────────────────────────────────────────────── */
+  .wa-fab {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 100;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--olive);
+    color: var(--cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 6px 20px rgba(94, 66, 50, 0.18);
+    transition: transform 320ms ease, background 320ms ease;
+  }
+  .wa-fab:hover {
+    transform: translateY(-2px) scale(1.04);
+    background: var(--brown);
+  }
+  .wa-fab svg { width: 26px; height: 26px; display: block; }
+
+  /* ─────────────────────────────────────────────────
+     SCROLL-IN FADE
+     ───────────────────────────────────────────────── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 900ms cubic-bezier(0.2, 0.7, 0.2, 1),
+                transform 900ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .reveal.is-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal--d1 { transition-delay: 80ms; }
+  .reveal--d2 { transition-delay: 160ms; }
+  .reveal--d3 { transition-delay: 240ms; }
+  .reveal--d4 { transition-delay: 320ms; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .hero__scroll::after { animation: none; }
+  }
+
+  /* ─────────────────────────────────────────────────
+     RESPONSIVO
+     ───────────────────────────────────────────────── */
+  @media (max-width: 960px) {
+    .hero {
+      grid-template-columns: 1fr;
+      min-height: auto;
+    }
+    .hero__left {
+      padding: 140px 28px 72px;
+      order: 2;
+    }
+    .hero__right {
+      order: 1;
+      height: 78vh;
+      min-height: 480px;
+    }
+    .hero__index { top: 100px; }
+    .hero__caption { display: none; }
+    .hero__scroll { display: none; }
+    .hero__headline { margin-top: 56px; max-width: none; }
+    .hero__meta { gap: 32px; margin-top: 40px; }
+
+    .nav { display: none; }
+    .nav-toggle {
+      display: inline-block;
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--brown);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 8px 0;
+    }
+
+    .sintomas__intro {
+      grid-template-columns: 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .sintomas__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .col { min-height: auto; padding: 56px 32px; }
+    .col--cream { box-shadow: inset 0 -1px 0 var(--brown-10); }
+  }
+
+  @media (max-width: 480px) {
+    .site-header { padding: 22px 24px; }
+    .logo { font-size: 19px; }
+    .hero__left { padding: 120px 24px 56px; }
+    .hero__cta-row { gap: 20px; }
+    .btn { padding: 18px 28px; font-size: 12px; }
+    .wa-fab { width: 52px; height: 52px; bottom: 20px; right: 20px; }
+  }
+
+  /* ─────────────────────────────────────────
+     SHARED — eyebrow editorial reutável
+     ───────────────────────────────────────── */
+  .editorial-eyebrow {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 22px;
+    color: var(--olive);
+    margin: 0 0 24px;
+  }
+  .editorial-eyebrow .num {
+    font-style: normal;
+    color: var(--brown-50);
+    letter-spacing: 0.1em;
+    margin-right: 10px;
+  }
+
+  /* ─────────────────────────────────────────
+     03 — ABORDAGEM (split editorial 50/50)
+     ───────────────────────────────────────── */
+  .abordagem {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--cream);
+    min-height: 75vh;
+  }
+  .abordagem__media {
+    position: relative;
+    overflow: hidden;
+    background: var(--brown);
+  }
+  .abordagem__media img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 1200ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .abordagem__media:hover img { transform: scale(1.02); }
+  .abordagem__body {
+    padding: clamp(64px, 9vh, 112px) clamp(40px, 6vw, 96px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 720px;
+  }
+  .abordagem__title {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.012em;
+    color: var(--brown);
+    margin: 0 0 56px;
+    max-width: 16ch;
+  }
+  .abordagem__quote {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(1.25rem, 1.7vw, 1.6rem);
+    line-height: 1.4;
+    color: rgba(94, 66, 50, 0.85);
+    margin: 0 0 40px;
+    max-width: 480px;
+    padding-left: 20px;
+    border-left: 2px solid var(--olive);
+  }
+  .abordagem__copy {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--brown-70);
+    margin: 0 0 48px;
+    max-width: 520px;
+  }
+
+  /* ─────────────────────────────────────────
+     04 — CONHEÇA SUA PSI (3 atos)
+     ───────────────────────────────────────── */
+
+  .ato1 {
+    background: var(--cream);
+    padding: clamp(72px, 10vh, 120px) 0;
+    position: relative;
+  }
+  .ato1__inner {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 clamp(40px, 6vw, 96px);
+    display: grid;
+    grid-template-columns: 60fr 40fr;
+    gap: clamp(48px, 6vw, 96px);
+    align-items: center;
+  }
+  .ato1__title {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(2.4rem, 4.4vw, 4rem);
+    line-height: 1.0;
+    letter-spacing: -0.015em;
+    color: var(--brown);
+    margin: 24px 0 0;
+    max-width: 12ch;
+  }
+  .ato1__intro {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.7;
+    color: rgba(94, 66, 50, 0.80);
+    max-width: 520px;
+    margin: 48px 0 0;
+  }
+  .ato1__title em {
+    font-style: italic;
+    font-weight: 500;
+    color: var(--olive);
+  }
+  .ato1__media {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    max-height: 480px;
+    margin-left: auto;
+    overflow: hidden;
+    background: var(--rose);
+  }
+  .ato1__media img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 1200ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .ato1__media:hover img { transform: scale(1.02); }
+  .ato1__detail {
+    position: absolute;
+    left: -32px; bottom: -32px;
+    width: 140px; height: 140px;
+    overflow: hidden;
+    border: 8px solid var(--cream);
+    z-index: 2;
+  }
+  .ato1__detail img { width: 100%; height: 100%; object-fit: cover; }
+
+  .ato2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+  }
+  .ato2__col {
+    padding: clamp(56px, 7vw, 88px) clamp(40px, 6vw, 80px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 400px;
+    max-height: 460px;
+    gap: 40px;
+  }
+  .ato2__col--olive { background: var(--olive); color: var(--cream); }
+  .ato2__col--rose  { background: var(--rose);  color: var(--brown); }
+
+  .ato2__num {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(5rem, 8vw, 8rem);
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    margin: 0;
+  }
+  .ato2__col--olive .ato2__num { color: var(--cream); }
+  .ato2__col--rose  .ato2__num { color: var(--brown); }
+
+  .ato2__label {
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin: 0;
+    opacity: 0.8;
+  }
+  .ato2__copy {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+    line-height: 1.45;
+    margin: 0;
+    max-width: 28ch;
+  }
+
+  .ato3 {
+    background: var(--cream);
+    text-align: center;
+    padding: clamp(80px, 12vh, 140px) clamp(40px, 6vw, 96px);
+  }
+  .ato3__bridge {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.7;
+    color: rgba(94, 66, 50, 0.80);
+    max-width: 600px;
+    margin: 0 auto 64px;
+  }
+  .ato3__quote {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(1.5rem, 2.6vw, 2.2rem);
+    line-height: 1.4;
+    color: var(--brown);
+    margin: 0 auto 40px;
+    max-width: 22ch;
+  }
+  .ato3__sig {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.15rem;
+    color: var(--olive);
+    margin: 0 0 56px;
+  }
+
+  /* ─────────────────────────────────────────
+     05 — DEPOIMENTOS (grid editorial assimétrico)
+     ───────────────────────────────────────── */
+  .depoimentos {
+    background: var(--cream);
+    padding: clamp(72px, 10vh, 120px) 0;
+  }
+  .depoimentos__head {
+    max-width: var(--max);
+    margin: 0 auto clamp(56px, 8vh, 96px);
+    padding: 0 clamp(40px, 6vw, 96px);
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: clamp(32px, 5vw, 80px);
+    align-items: end;
+  }
+  .depoimentos__title {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(2rem, 3.6vw, 3rem);
+    line-height: 1.08;
+    color: var(--brown);
+    margin: 0;
+    max-width: 16ch;
+    letter-spacing: -0.01em;
+  }
+  .depoimentos__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    width: 100%;
+  }
+  .depo {
+    padding: clamp(40px, 4vw, 64px) clamp(32px, 3vw, 56px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height: 320px;
+    gap: 28px;
+  }
+  .depo__quote { flex: 1 1 auto; }
+  .depo--big   { grid-column: span 2; min-height: 320px; }
+  .depo--wide  { grid-column: span 2; min-height: 320px; }
+  .depo--cream { background: var(--cream); color: var(--brown); border: 1px solid var(--brown-10); }
+  .depo--cream-line { background: var(--cream); color: var(--brown); border-top: 2px solid var(--brown); border-right: 1px solid var(--brown-10); border-bottom: 1px solid var(--brown-10); border-left: 1px solid var(--brown-10); }
+  .depo--olive { background: var(--olive); color: var(--cream); }
+  .depo--rose  { background: var(--rose);  color: var(--brown); }
+  .depo--brown { background: var(--brown); color: var(--cream); }
+
+  .depo__quote {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(1rem, 1.2vw, 1.1rem);
+    line-height: 1.55;
+    margin: 0;
+  }
+  .depo--big .depo__quote { font-size: clamp(1.1rem, 1.4vw, 1.3rem); }
+  .depo--wide .depo__quote { font-size: clamp(1.05rem, 1.3vw, 1.2rem); }
+
+  .depo__attr {
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    opacity: 0.85;
+  }
+  .depo__stars {
+    letter-spacing: 0.1em;
+    font-size: 12px;
+  }
+  .depoimentos__cta {
+    text-align: center;
+    margin-top: clamp(56px, 8vh, 96px);
+  }
+
+  /* ─────────────────────────────────────────
+     06 — LOCAL & ATENDIMENTO
+     ───────────────────────────────────────── */
+  .local__head {
+    background: var(--cream);
+    padding: clamp(72px, 10vh, 120px) clamp(40px, 6vw, 96px) clamp(40px, 6vh, 64px);
+    max-width: var(--max);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: clamp(32px, 5vw, 80px);
+    align-items: end;
+  }
+  .local__title {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(2rem, 3.6vw, 3rem);
+    line-height: 1.08;
+    color: var(--brown);
+    margin: 0;
+    max-width: 18ch;
+    letter-spacing: -0.01em;
+  }
+  .local__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    width: 100%;
+  }
+  .local__card {
+    position: relative;
+    height: 60vh;
+    min-height: 460px;
+    overflow: hidden;
+    color: var(--cream);
+  }
+  .local__card img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 1200ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .local__card:hover img { transform: scale(1.02); }
+  .local__card::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.0) 55%);
+    pointer-events: none;
+    z-index: 1;
+  }
+  /* overlay marrom para harmonizar tons frios da foto presencial */
+  .local__card--presencial::before {
+    content: "";
+    position: absolute; inset: 0;
+    background: rgba(94, 66, 50, 0.15);
+    pointer-events: none;
+    z-index: 1;
+  }
+  .local__card--online img    { object-position: 30% 35%; }
+  .local__card--presencial img { object-position: 28% 35%; }
+  .local__tag {
+    position: absolute;
+    top: clamp(28px, 3vw, 48px);
+    left: clamp(28px, 3vw, 48px);
+    z-index: 2;
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    padding: 8px 14px;
+  }
+  .local__tag--olive { background: var(--olive); color: var(--cream); }
+  .local__tag--rose  { background: var(--rose);  color: var(--brown); }
+  .local__caption {
+    position: absolute;
+    z-index: 2;
+    bottom: clamp(28px, 3vw, 48px);
+    left: clamp(28px, 3vw, 48px);
+    right: clamp(28px, 3vw, 48px);
+    z-index: 2;
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+    line-height: 1.45;
+    color: var(--cream);
+    text-shadow: 0 2px 18px rgba(0,0,0,0.35);
+  }
+  .local__caption .addr {
+    display: block;
+    font-family: var(--sans);
+    font-style: normal;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    line-height: 1.6;
+    margin-top: 12px;
+    opacity: 0.92;
+  }
+  .local__maplink {
+    display: inline-block;
+    margin-top: 14px;
+    font-family: var(--sans);
+    font-style: normal;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--cream);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,242,229,0.5);
+    padding-bottom: 4px;
+    transition: border-color 320ms ease;
+  }
+  .local__maplink:hover { border-color: var(--cream); }
+
+  /* ─────────────────────────────────────────
+     07 — FOOTER
+     ───────────────────────────────────────── */
+  .site-footer {
+    background: var(--brown);
+    color: var(--cream);
+    padding: clamp(80px, 12vh, 140px) clamp(40px, 6vw, 96px) 32px;
+  }
+  .footer__grid {
+    max-width: var(--max);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr 1.4fr;
+    gap: clamp(48px, 6vw, 96px);
+    padding-bottom: clamp(64px, 10vh, 96px);
+  }
+  .footer__logo {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 500;
+    font-size: 2rem;
+    color: var(--cream);
+    margin: 0 0 20px;
+    letter-spacing: 0.005em;
+  }
+  .footer__role {
+    font-family: var(--sans);
+    font-size: 14px;
+    color: rgba(255,242,229,0.6);
+    margin: 0 0 6px;
+    letter-spacing: 0.04em;
+  }
+  .footer__crp {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,242,229,0.4);
+    margin: 16px 0 0;
+  }
+  .footer__head {
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin: 0 0 24px;
+  }
+  .footer__list {
+    list-style: none; margin: 0; padding: 0;
+  }
+  .footer__list li { margin-bottom: 14px; }
+  .footer__list a {
+    font-family: var(--sans);
+    font-size: 15px;
+    color: var(--cream);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 12px;
+    transition: color 320ms ease, transform 320ms ease;
+  }
+  .footer__list a .ico {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,242,229,0.45);
+    min-width: 80px;
+  }
+  .footer__list a:hover { color: var(--rose); }
+  .footer__list a:hover .ico { color: var(--rose); }
+
+  .footer__quote {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 1.35;
+    color: var(--cream);
+    margin: 0 0 32px;
+    max-width: 16ch;
+  }
+  .btn--cream {
+    background: var(--cream);
+    color: var(--brown);
+  }
+  .btn--cream:hover {
+    background: var(--rose);
+    color: var(--brown);
+    transform: translateY(-1px);
+  }
+
+  .footer__bottom {
+    border-top: 1px solid rgba(255,242,229,0.2);
+    padding-top: 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    font-family: var(--sans);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: rgba(255,242,229,0.55);
+    max-width: var(--max);
+    margin: 0 auto;
+  }
+  .footer__bottom a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(255,242,229,0.25); }
+  .footer__bottom a:hover { color: var(--rose); border-color: var(--rose); }
+
+  /* ─────────────────────────────────────────
+     RESPONSIVO — seções novas
+     ───────────────────────────────────────── */
+  @media (max-width: 960px) {
+    .abordagem { grid-template-columns: 1fr; min-height: auto; }
+    .abordagem__media { aspect-ratio: 4 / 5; }
+    .abordagem__media img { position: absolute; }
+    .abordagem__body { padding: 72px 28px; }
+
+    .ato1__inner { grid-template-columns: 1fr; gap: 48px; }
+    .ato1__media { max-width: 480px; }
+
+    .ato2 { grid-template-columns: 1fr; }
+    .ato2__col { min-height: 420px; }
+
+    .depoimentos__head,
+    .local__head { grid-template-columns: 1fr; align-items: start; gap: 20px; }
+    .depoimentos__grid { grid-template-columns: 1fr; }
+    .depo--big, .depo--wide { grid-column: span 1; }
+
+    .local__grid { grid-template-columns: 1fr; }
+    .local__card { aspect-ratio: 4 / 5; }
+
+    .footer__grid { grid-template-columns: 1fr; gap: 56px; }
+    .footer__bottom { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ──────── HEADER ──────── -->
+<header class="site-header">
+  <a href="#" class="logo">Ariana Marafon</a>
+  <nav class="nav" aria-label="Navegação principal">
+    <a href="#sobre">Sobre</a>
+    <a href="#abordagem">Abordagem</a>
+    <a href="#depoimentos">Depoimentos</a>
+    <a href="#contato">Contato</a>
+  </nav>
+  <button class="nav-toggle" aria-label="Abrir menu">menu</button>
+</header>
+
+<main>
+
+  <!-- ──────── 01. HERO ──────── -->
+  <section class="hero" id="hero" aria-label="Apresentação">
+
+    <div class="hero__left">
+      <p class="hero__eyebrow reveal">
+        ARIANA MARAFON <span class="dot"></span> CRP XX/XXXX <span class="dot"></span> TCC
+      </p>
+
+      <h1 class="hero__headline reveal reveal--d1">
+        Compreenda suas<br>
+        limitações,<br>
+        ressignifique<br>
+        suas experiências.<br>
+        <em>Construa mudanças com leveza.</em>
+      </h1>
+
+      <p class="hero__sub reveal reveal--d2">
+        Na Terapia Cognitivo-Comportamental, trabalhamos juntos para
+        compreender seus padrões de pensamento e construir caminhos
+        mais conscientes.
+      </p>
+
+      <div class="hero__cta-row reveal reveal--d3">
+        <a class="btn btn--primary"
+           href="https://api.whatsapp.com/send?phone=554899984574&text=Ol%C3%A1%20Ariana,%20gostaria%20de%20agendar%20uma%20consulta">
+          Agendar consulta <span class="arrow" aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div class="hero__meta reveal reveal--d4">
+        <div>
+          Atendimento
+          <strong>Online · Brasil</strong>
+        </div>
+        <div>
+          Presencial
+          <strong>Florianópolis · SC</strong>
+        </div>
+      </div>
+
+      <div class="hero__scroll" aria-hidden="true">role para descobrir</div>
+    </div>
+
+    <div class="hero__right">
+      <span class="hero__index">01 — Apresentação</span>
+      <img class="hero__photo"
+           src="images/01-hero-rosa.jpg"
+           alt="Retrato de Ariana Marafon, sentada em poltrona, blusa rosa antigo, em postura contemplativa." />
+      <p class="hero__caption">
+        Psicologia clínica<br>
+        para mulheres em<br>
+        transição
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ──────── 02. SINTOMAS ──────── -->
+  <section class="sintomas" id="sintomas" aria-labelledby="sintomas-title">
+
+    <div class="sintomas__intro">
+      <p class="sintomas__eyebrow reveal">quando procurar</p>
+      <h2 id="sintomas-title" class="sintomas__title reveal reveal--d1">
+        Se você se reconhece nestes sintomas, <em>é hora de buscar ajuda.</em>
+      </h2>
+    </div>
+
+    <div class="sintomas__grid">
+
+      <article class="col col--cream reveal">
+        <p class="col__num" hidden>i.</p>
+        <h3 class="col__title">Mente <br>e Corpo</h3>
+        <ul class="col__list">
+          <li>Ansiedade e crises de pânico</li>
+          <li>Insônia e distúrbios do sono</li>
+          <li>Depressão e vazio</li>
+          <li>Estresse crônico</li>
+        </ul>
+      </article>
+
+      <article class="col col--olive reveal reveal--d1">
+        <p class="col__num" hidden>ii.</p>
+        <h3 class="col__title">Relações <br>e Identidade</h3>
+        <ul class="col__list">
+          <li>Dependência emocional</li>
+          <li>Baixa autoestima</li>
+          <li>Problemas de relacionamento</li>
+          <li>Dificuldade em dizer “não”</li>
+        </ul>
+      </article>
+
+      <article class="col col--rose reveal reveal--d2">
+        <p class="col__num" hidden>iii.</p>
+        <h3 class="col__title">Desafios <br>e Carreira</h3>
+        <ul class="col__list">
+          <li>Estresse e Burnout</li>
+          <li>Transição de carreira</li>
+          <li>Perfeccionismo e cobrança</li>
+          <li>Tomada de decisões</li>
+        </ul>
+      </article>
+
+    </div>
+
+    <div class="sintomas__outro">
+      <p class="sintomas__quote reveal">
+        A psicoterapia é o caminho para superar seus desafios atuais
+        e encontrar o equilíbrio emocional que você merece.
+      </p>
+      <a class="btn btn--outline reveal reveal--d1"
+         href="https://api.whatsapp.com/send?phone=554899984574&text=Ol%C3%A1%20Ariana,%20gostaria%20de%20agendar%20uma%20consulta">
+        Quero começar minha terapia <span class="arrow" aria-hidden="true"></span>
+      </a>
+    </div>
+
+  </section>
+
+
+  <!-- ──────── 03. ABORDAGEM TCC ──────── -->
+  <section class="abordagem" id="abordagem" aria-labelledby="abordagem-title">
+    <div class="abordagem__media reveal">
+      <img src="images/02-tcc-espelho.jpg"
+           alt="Ariana refletida em um espelho de moldura escura, em postura introspectiva." />
+    </div>
+    <div class="abordagem__body">
+      <p class="editorial-eyebrow reveal">abordagem</p>
+      <h2 id="abordagem-title" class="abordagem__title reveal reveal--d1">
+        Uma abordagem prática,<br>
+        estruturada e baseada<br>
+        <em>em evidências.</em>
+      </h2>
+      <p class="abordagem__quote reveal reveal--d2">
+        A terapia é o espaço onde você se reencontra com versões
+        de si que ainda precisam ser ouvidas.
+      </p>
+      <p class="abordagem__copy reveal reveal--d3" style="margin-bottom: 24px;">
+        A TCC é uma abordagem prática, estruturada e baseada em evidências,
+        com foco no presente. Trabalha na identificação e modificação de
+        padrões que impactam suas emoções e comportamentos.
+      </p>
+      <p class="abordagem__copy reveal reveal--d3">
+        Na Terapia Cognitivo-Comportamental, trabalhamos juntos para
+        compreender seus padrões de pensamento e construir caminhos mais
+        leves, conscientes e alinhados com quem você deseja ser. Em cada
+        sessão — no consultório ou online — o processo é conduzido de
+        forma colaborativa, respeitando seu ritmo e garantindo um ambiente
+        seguro e acolhedor.
+      </p>
+      <div class="reveal reveal--d4">
+        <a class="btn btn--outline"
+           href="https://api.whatsapp.com/send?phone=554899984574&text=Ol%C3%A1%20Ariana,%20gostaria%20de%20iniciar%20um%20atendimento">
+          Iniciar atendimento <span class="arrow" aria-hidden="true"></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ──────── 04. CONHEÇA SUA PSI ──────── -->
+  <section class="ato1" id="sobre" aria-labelledby="sobre-title">
+    <div class="ato1__inner">
+      <div>
+        <p class="editorial-eyebrow reveal">quem é</p>
+        <h2 id="sobre-title" class="ato1__title reveal reveal--d1">
+          Oi! Sou a Ariana,<br>
+          psicóloga e <em>mãe.</em>
+        </h2>
+        <p class="ato1__intro reveal reveal--d2">
+          Acredito profundamente na força de transformação que existe
+          dentro de cada pessoa. Minha trajetória me ensinou que a vida
+          exige cuidado, presença e, acima de tudo, ferramentas certas
+          para lidar com os momentos de instabilidade.
+        </p>
+      </div>
+      <div class="ato1__media reveal reveal--d2">
+        <img src="images/03-sobre-ariana.jpg"
+             alt="Ariana Marafon sentada no chão, sorrindo, em ambiente sereno com planta seca ao fundo." />
+        <div class="ato1__detail" aria-hidden="true">
+          <img src="images/06-detalhe-cafe.jpg" alt="" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ato2" aria-label="Bagagem profissional e pessoal">
+    <div class="ato2__col ato2__col--olive reveal">
+      <p class="ato2__num">15+</p>
+      <div>
+        <p class="ato2__label">Anos em gestão de pessoas na tech</p>
+        <p class="ato2__copy">
+          Trago para a clínica uma visão estratégica sobre carreira,
+          liderança e a pressão do ambiente corporativo. Entendo de
+          perto o que significa equilibrar ambição profissional e
+          saúde emocional.
+        </p>
+      </div>
+    </div>
+    <div class="ato2__col ato2__col--rose reveal reveal--d1">
+      <p class="ato2__num">∞</p>
+      <div>
+        <p class="ato2__label">Transformação da maternidade</p>
+        <p class="ato2__copy">
+          Vivi na pele as transformações do puerpério. Hoje acolho
+          mulheres que buscam reencontrar sua identidade e força
+          nesse momento intenso.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="ato3" aria-label="Manifesto">
+    <p class="ato3__bridge reveal">
+      Após me tornar mãe, minha perspectiva se expandiu. Vivi na pele
+      as transformações do puerpério, o que me motivou a mergulhar
+      nos estudos sobre essa fase. Hoje, acolho mulheres que buscam
+      reencontrar sua identidade e força nesse momento tão intenso.
+    </p>
+    <p class="ato3__quote reveal">
+      Acredito no potencial único de cada indivíduo. Meu trabalho é
+      garantir que você não apenas supere desafios, mas reconheça
+      a sua melhor versão.
+    </p>
+    <p class="ato3__sig reveal reveal--d1">— Ariana</p>
+    <div class="reveal reveal--d2">
+      <a class="btn btn--primary"
+         href="https://api.whatsapp.com/send?phone=554899984574&text=Ol%C3%A1%20Ariana,%20gostaria%20de%20conversar">
+        Falar com a psicóloga <span class="arrow" aria-hidden="true"></span>
+      </a>
+    </div>
+  </section>
+
+
+  <!-- ──────── 05. DEPOIMENTOS ──────── -->
+  <section class="depoimentos" id="depoimentos" aria-labelledby="depo-title">
+    <div class="depoimentos__head">
+      <p class="editorial-eyebrow reveal">depoimentos</p>
+      <h2 id="depo-title" class="depoimentos__title reveal reveal--d1">
+        Histórias de quem<br>
+        confiou no processo.
+      </h2>
+    </div>
+
+    <div class="depoimentos__grid">
+
+      <article class="depo depo--big depo--cream reveal">
+        <p class="depo__quote">
+          “Procurei a Ariana num momento muito difícil da minha vida.
+          Ela me ajudou muito a passar dessa fase. Me deixou à vontade
+          para que eu pudesse me abrir. Me ajudou muito a refletir sobre
+          a vida e a mim mesmo. Profissional pontual, competente e bem
+          organizada. Sempre disposta em me ajudar a melhorar como pessoa.”
+        </p>
+        <p class="depo__attr">
+          Thiago P. <span class="depo__stars" aria-label="5 de 5">★★★★★</span>
+        </p>
+      </article>
+
+      <article class="depo depo--olive reveal reveal--d1">
+        <p class="depo__quote">
+          “Terapeuta perfeita, cria um ambiente acolhedor e sincero.
+          Profissional tão incrível que saio das sessões sempre motivada.”
+        </p>
+        <p class="depo__attr">
+          Gabriela C. <span class="depo__stars" aria-label="5 de 5">★★★★★</span>
+        </p>
+      </article>
+
+      <article class="depo depo--rose reveal">
+        <p class="depo__quote">
+          “Ao longo de nossas consultas fomos construindo uma relação
+          de confiança que está me possibilitando perceber novos
+          caminhos para lidar com situações cotidianas. Psicóloga
+          incrível: pontual, atenciosa, inteligente, prestativa.”
+        </p>
+        <p class="depo__attr">
+          Thayse Mann <span class="depo__stars" aria-label="5 de 5">★★★★★</span>
+        </p>
+      </article>
+
+      <article class="depo depo--cream-line reveal reveal--d1">
+        <p class="depo__quote">
+          “Excelente profissional! Agradeço profundamente por sua
+          empatia e compreensão, me trouxe muita segurança e força.
+          Sua sabedoria e paciência me ajudaram.”
+        </p>
+        <p class="depo__attr">
+          Andreza F. <span class="depo__stars" aria-label="5 de 5">★★★★★</span>
+        </p>
+      </article>
+
+      <article class="depo depo--wide depo--brown reveal reveal--d2">
+        <p class="depo__quote">
+          “A Ariana tem uma escuta ativa e sempre traz ideias para
+          melhorar a minha relação com as pessoas. Sempre saio das
+          nossas conversas com novos aprendizados sobre a vida e
+          sobre mim. Recomendo demais, principalmente para mães!”
+        </p>
+        <p class="depo__attr">
+          Fernanda <span class="depo__stars" aria-label="5 de 5">★★★★★</span>
+        </p>
+      </article>
+
+    </div>
+
+    <div class="depoimentos__cta reveal">
+      <a class="btn btn--primary"
+         href="https://api.whatsapp.com/send?phone=554899984574&text=Ol%C3%A1%20Ariana,%20gostaria%20de%20agendar%20minha%20primeira%20sess%C3%A3o">
+        Agende sua primeira sessão <span class="arrow" aria-hidden="true"></span>
+      </a>
+    </div>
+  </section>
+
+
+  <!-- ──────── 06. LOCAL & ATENDIMENTO ──────── -->
+  <section id="contato" aria-labelledby="local-title">
+    <div class="local__head">
+      <p class="editorial-eyebrow reveal">onde encontrar</p>
+      <h2 id="local-title" class="local__title reveal reveal--d1">
+        Online para o Brasil<br>
+        inteiro, presencial<br>
+        em Florianópolis.
+      </h2>
+    </div>
+    <div class="local__grid">
+      <div class="local__card local__card--online reveal">
+        <span class="local__tag local__tag--olive">Online</span>
+        <img src="images/04-online-verde.jpg"
+             alt="Ambiente do atendimento online — prateleira com esculturas, planta e luz natural ao fundo." />
+        <p class="local__caption">
+          Sessões online com a mesma profundidade do presencial.
+          Atendo em todo o Brasil.
+        </p>
+      </div>
+      <div class="local__card local__card--presencial reveal reveal--d1">
+        <span class="local__tag local__tag--rose">Presencial</span>
+        <img src="images/07-vista-floripa.jpg"
+             alt="Vista do consultório em Florianópolis: janela ampla com as montanhas da cidade ao fundo, poltrona azul e tapete cinza no interior." />
+        <p class="local__caption">
+          Consultório em Florianópolis.
+          <span class="addr">
+            R. Lauro Linhares, 2123 — Sala 113<br>
+            Trindade · Florianópolis · SC
+          </span>
+          <a class="local__maplink"
+             href="https://maps.google.com/?q=R.+Lauro+Linhares,+2123,+Trindade,+Florianopolis"
+             target="_blank" rel="noopener">Ver no mapa →</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+
+<!-- ──────── 07. FOOTER ──────── -->
+<footer class="site-footer" aria-label="Rodapé">
+  <div class="footer__grid">
+    <div>
+      <p class="footer__logo">ariana marafon</p>
+      <p class="footer__role">Psicóloga Clínica · TCC</p>
+      <p class="footer__crp">[CRP a confirmar]</p>
+    </div>
+    <div>
+      <p class="footer__head">Conecte-se</p>
+      <ul class="footer__list">
+        <li><a href="https://instagram.com/arianamarafon.psi" target="_blank" rel="noopener"><span class="ico">Instagram</span> @arianamarafon.psi</a></li>
+        <li><a href="https://linkedin.com/in/arianamarafon" target="_blank" rel="noopener"><span class="ico">LinkedIn</span> /in/arianamarafon</a></li>
+        <li><a href="https://api.whatsapp.com/send?phone=554899984574" target="_blank" rel="noopener"><span class="ico">WhatsApp</span> +55 48 9998-4574</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer__quote">
+        Sua jornada começa<br>
+        com uma conversa.
+      </p>
+      <a class="btn btn--cream"
+         href="https://api.whatsapp.com/send?phone=554899984574&text=Ol%C3%A1%20Ariana,%20gostaria%20de%20agendar%20minha%20primeira%20consulta">
+        Agendar primeira consulta <span class="arrow" aria-hidden="true"></span>
+      </a>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>© 2026 Ariana Marafon · Todos os direitos reservados</span>
+    <span>Site por <a href="#">Wictor Rafael</a></span>
+  </div>
+</footer>
+
+
+<!-- Schema.org MedicalBusiness -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalBusiness",
+  "name": "Ariana Marafon — Psicóloga Clínica",
+  "description": "Psicóloga clínica TCC. Atendimento online em todo o Brasil e presencial em Florianópolis-SC. Atendimento especializado para mulheres em pressão de carreira, maternidade e transição.",
+  "medicalSpecialty": "Psychiatric",
+  "areaServed": "BR",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "R. Lauro Linhares, 2123 — Sala 113",
+    "addressLocality": "Florianópolis",
+    "addressRegion": "SC",
+    "addressCountry": "BR"
+  },
+  "telephone": "+55-48-99998-4574",
+  "url": ""
+}
+</script>
+
+<!-- WhatsApp flutuante -->
+<a class="wa-fab"
+   href="https://api.whatsapp.com/send?phone=554899984574&text=Ol%C3%A1%20Ariana,%20gostaria%20de%20agendar%20uma%20consulta"
+   aria-label="Falar no WhatsApp"
+   target="_blank" rel="noopener">
+  <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
+    <path d="M16.003 3C9.374 3 4 8.374 4 15.003a11.93 11.93 0 0 0 1.706 6.158L4 29l8.04-1.682a12.01 12.01 0 0 0 3.962.667h.001C22.633 27.985 28 22.611 28 15.982 28 12.79 26.751 9.79 24.49 7.527A11.92 11.92 0 0 0 16.003 3zm0 21.96h-.003a9.95 9.95 0 0 1-3.98-.79l-.286-.114-4.77.998 1.018-4.652-.187-.298a9.93 9.93 0 0 1-1.526-5.099c0-5.485 4.464-9.949 9.953-9.949 2.658 0 5.155 1.036 7.034 2.916a9.875 9.875 0 0 1 2.917 7.039c-.002 5.486-4.466 9.949-9.952 9.949zm5.46-7.452c-.299-.15-1.77-.873-2.044-.973-.273-.1-.473-.149-.672.15-.2.298-.771.972-.945 1.171-.174.2-.348.224-.647.075-.299-.15-1.262-.465-2.404-1.483-.888-.793-1.488-1.772-1.663-2.07-.174-.299-.019-.46.131-.609.135-.134.299-.348.448-.522.15-.174.2-.298.299-.497.1-.2.05-.373-.025-.523-.075-.149-.672-1.62-.92-2.219-.243-.583-.49-.504-.672-.513l-.572-.01a1.1 1.1 0 0 0-.797.373c-.273.299-1.045 1.022-1.045 2.493 0 1.471 1.07 2.892 1.22 3.092.149.2 2.105 3.215 5.1 4.51.713.308 1.27.492 1.704.63.716.228 1.367.196 1.882.119.575-.086 1.77-.723 2.02-1.422.249-.7.249-1.298.174-1.422-.075-.124-.273-.2-.572-.349z"/>
+  </svg>
+</a>
+
+<script>
+  // intersection observer para fade-in editorial
+  const els = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        e.target.classList.add('is-in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  els.forEach((el) => io.observe(el));
+</script>
+
+</body>
+</html>
